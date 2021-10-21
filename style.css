@@ -1,0 +1,259 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.container {
+	display: grid;
+	height: 100vh;
+	grid-template:
+		"logo-menu-button header header header" 64px
+		"left-nav main settings-bar other-apps" 1fr /
+		256px 1fr 300px 55px;
+}
+/* Logo and menu button */
+.logo-menu-button {
+	display: grid;
+	grid-template-columns: auto auto;
+	align-items: center;
+}
+.burger-menu {
+	cursor: pointer;
+}
+.burger-menu div {
+	width: 25px;
+	height: 2px;
+	background-color: lightgray;
+	margin: 4px auto;
+}
+
+.logo-menu-button,
+.header {
+	border-bottom: 1px solid #f1f3f4;
+}
+
+/* Header */
+
+.header {
+	grid-area: header;
+	padding: 10px 15px 10px 0;
+	display: grid;
+	grid-template-columns: 1fr auto;
+	justify-content: space-between;
+}
+.searchbar {
+	background-color: #f1f3f4;
+	padding: 10px 20px;
+	align-items: center;
+	max-width: 720px;
+	display: grid;
+	grid-template-columns: 30px 1fr 30px;
+	border-radius: 8px;
+}
+.searchbar img {
+	width: 18px;
+	cursor: pointer;
+}
+.account-buttons {
+	display: grid;
+	grid-template-columns: auto auto auto auto;
+	align-items: center;
+}
+.account-buttons img {
+	width: 24px;
+	margin: 0 10px;
+}
+.account-buttons span {
+	background-color: burlywood;
+	border-radius: 50%;
+	padding: 10px 12px;
+	font-size: larger;
+	color: white;
+	line-height: 1;
+}
+.left-nav {
+	grid-area: left-nav;
+	padding: 20px 20px 20px 10px;
+}
+.left-nav button {
+	display: grid;
+	grid-template-columns: auto auto;
+	align-items: center;
+	background-color: white;
+	padding: 8px 10px;
+	border: none;
+	border-radius: 24px;
+	justify-content: space-around;
+	box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%);
+	width: 60%;
+	cursor: pointer;
+}
+
+.mail-options,
+.hangout-extra {
+	padding-right: 20px;
+	height: 150px;
+	overflow-y: scroll;
+	border-bottom: 2px solid #f1f3f4;
+	margin-top: 40px;
+}
+.option {
+	cursor: pointer;
+	color: #292929;
+	font-weight: bold;
+	padding: 5px 70px;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+}
+.option:first-child {
+	background-color: rgba(187, 6, 6, 0.1);
+	color: rgb(175, 14, 14);
+}
+
+.hangout-extra p {
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+.hangout-option {
+	padding: 5px 25px;
+}
+.main {
+	grid-area: main;
+}
+.main-options {
+	padding: 20px;
+}
+.emails {
+	overflow-y: scroll;
+	overflow-x: hidden;
+	height: 87vh;
+}
+.mail-categories {
+	display: grid;
+	grid-template-columns: 0.2fr 0.2fr 0.2fr;
+	border-top: 1px solid #f1f3f4;
+}
+.category {
+	padding: 20px;
+}
+.single-email {
+	display: grid;
+	padding: 10px 20px;
+	grid-template-columns: 30px 30px 200px 1fr 100px;
+	border-top: 1px solid #f1f3f4;
+}
+.checkbox {
+	width: 16px;
+	height: 16px;
+	border: 2px solid #f1f3f4;
+}
+.sender,
+.subject,
+.time {
+	font-weight: bold;
+	font-family: sans-serif;
+}
+
+.settings-bar {
+	grid-area: settings-bar;
+	padding: 30px 10px;
+}
+
+.inbox-type {
+	border-top: 1px solid #f1f3f4;
+	padding: 15px 5px;
+	margin-top: 30px;
+	height: 600px;
+	overflow-y: scroll;
+}
+.type {
+	display: grid;
+	grid-template-columns: 30px 1fr 1fr;
+	padding: 20px 0px;
+	align-items: center;
+}
+.other-apps {
+	grid-area: other-apps;
+	display: grid;
+	height: 50%;
+	justify-items: center;
+	padding: 4px;
+}
+.other-apps img {
+	width: 25px;
+	margin: 20px auto;
+}
+.plus-button {
+	border-top: 2px solid #f1f3f4;
+	padding-top: 20px;
+}
+.plus-button div {
+	width: 25px;
+	height: 1px;
+	background-color: #292929;
+}
+.plus-button div:last-child {
+	transform: rotate(90deg);
+}
+
+@media screen and (max-width: 1200px) {
+	.container {
+		grid-template:
+			"logo-menu-button header header" 64px
+			"left-nav main other-apps" 1fr /
+			256px 1fr 55px;
+	}
+	.settings-bar {
+		display: none;
+	}
+}
+@media screen and (max-width: 800px) {
+	.container {
+		grid-template:
+			"logo-menu-button header " 64px
+			"left-nav main " 1fr /
+			256px 1fr;
+	}
+	.other-apps {
+		display: none;
+	}
+}
+@media screen and (max-width: 600px) {
+	.container {
+		grid-template:
+			"logo-menu-button header " 64px
+			"left-nav main " 1fr /
+			100px 1fr;
+	}
+	.logo-menu-button img {
+		display: none;
+	}
+	.account-buttons {
+		display: none;
+	}
+	.left-nav button p {
+		display: none;
+	}
+	.option {
+		padding: 5px;
+	}
+	.hangout-option {
+		padding: 5px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.container {
+		grid-template:
+			"logo-menu-button header " 64px
+			"main main " 1fr /
+			70px 1fr;
+	}
+	.emails {
+		width: 100vw;
+	}
+	.left-nav {
+		display: none;
+	}
+}
